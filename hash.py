@@ -18,6 +18,15 @@ class Hash:
         return file
 
     def _ToVars(self, file):
+        """
+        MT: Line 1
+        M: Total number of pizza
+        T2: No of team of 2
+        T3: No of team of 3
+        T4: No of team of 4
+        menu : list of list of ingredients of individual pizza
+    
+        """
         MT = file.pop(0)
         # print(MT)
         MT = MT.split(" ")
@@ -49,15 +58,22 @@ class Hash:
 
     def _MenScore(self, men, ingeredientsCounted):
         score = 0
+        # print("Pizza: ")
         for me in men:
             score = score + (1 / ingeredientsCounted[me])
+            # print(me, score)
         return score
 
     # def _ingeredientsCounted(self, menuFlat):
     def MenuScore(self, menu):
+        """
+        ingredientsCounted = Total number of ingredients
+        """
         menuFlat = self._MenuFlat(menu)
         ingeredientsCounted = collections.Counter(menuFlat)
+        print(ingeredientsCounted)
         menuScore = []
+        exit
         for men in menu:
             menuScore.append(self._MenScore(men, ingeredientsCounted))
         return menuScore
@@ -126,12 +142,13 @@ if __name__ == "__main__":
     hash = Hash()
 
     filenameA = "a_example.in"
-    filenameB = "b_little_bit_of_everything.in"
-    filenameC = "c_many_ingredients.in"
-    filenameD = "d_many_pizzas.in"
-    filenameE = "e_many_teams.in"
+    # filenameB = "b_little_bit_of_everything.in"
+    # filenameC = "c_many_ingredients.in"
+    # filenameD = "d_many_pizzas.in"
+    # filenameE = "e_many_teams.in"
 
-    filenames = [filenameA, filenameB, filenameC, filenameD, filenameE]
+    # filenames = [filenameA, filenameB, filenameC, filenameD, filenameE]
+    filenames = [filenameA]
 
     for filename in filenames:
         print(filename)
