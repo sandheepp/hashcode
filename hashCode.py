@@ -51,6 +51,15 @@ class Hash:
         # return file, MT, M, T2, T3, T4
         return MP, T2, T3, T4, menu
 
+    def ResToFile(self, ress, filename="trash"):
+        resToFile = []
+        resToFile.append(str(len(ress)) + "\n")
+        for line in ress:
+            resToFile.append(" ".join(str(item) for item in line) + "\n")
+        with open(filename, "w") as f:
+            f.writelines(resToFile)
+        return resToFile
+
 
     def _ListOfIngredients(self, menu):
         menuFlat = []
@@ -71,10 +80,13 @@ class Hash:
         return len(uniqueIngredientsCollection)
 
     def pizzaComboScore(self, menu):
-        T = [0, 0, 1, 2, 1]
+        numbers = [2,3,3, 4]
         MD = len(menu)
+        result = [seq for i in range(len(numbers), 0, -1) for seq in itertools.combinations(numbers, i) if sum(seq) == MD]
+        print(result)
         depleting_menu = menu[:]
         pizzas_t4 = []
+
         for i in 4,3,2:
             Scores=[]
             pizza_combos=[]

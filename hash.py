@@ -58,7 +58,7 @@ class Hash:
 
     def _MenScore(self, men, ingeredientsCounted):
         score = 0
-        # print("Pizza: ")
+        print("Pizza: ")
         for me in men:
             score = score + (1 / ingeredientsCounted[me])
             # print(me, score)
